@@ -179,22 +179,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th class="text-center">Aksi</th>
                   </tr>
                   </thead>
-                <?php 
-                $no = 1;
-                foreach($kategori as $kategori){ 
-                ?>
-    <tr>
-      <td class="text-center"><?php echo $no++ ?></td>
-      <td class="text-center"><?php echo $kategori->nama_kategori ?></td>
-      <td class="text-center" style="min-width:230px;">
-      
-                <?php echo anchor('Kategori/edit/'.$kategori->id_kategori,'Edit'); ?>
-      <?php echo anchor('Kategori/hapus/'.$kategori->id_kategori,'Hapus'); ?>   
-          
-      </td>
-      </td>
-    </tr>
-    <?php } ?>
+                    <?php 
+                    $no = 1;
+                    foreach($kategori as $wa){ 
+                    ?>
+                    <tr>
+                      <td class="text-center"><?php echo $no++ ?></td>
+                      <td class="text-center"><?php echo $wa['nama_kategori'] ?></td>
+                      <td class="text-center" style="min-width:230px;">
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#modal-edit<?php echo $wa['id_kategori']?>">Edit</button>
+                      <button class="btn btn-warning"> <?php echo anchor('Kategori/hapus/'.$wa['id_kategori'],'Hapus'); ?></button>
+                         
+                          
+                      </td>
+                    </tr>
+                    <?php } ?>
                   </table>
               </div>
               <!-- /.card-body -->
@@ -226,6 +225,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <!-- /.modal-dialog -->
       </div>
+    <!-- /.content -->
+  </div>
+  <?php 
+    foreach($kategori as $as){ 
+  ?>
+  <?php //echo $as['id_kategori'] ?>
+     <div class="modal fade" id="modal-edit<?php echo $as['id_kategori'] ?>">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <form action="<?php echo base_url(). 'Kategori/edit'; ?>" method="post">
+              <h5 class="modal-title">Edit Kategori</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+             <div class="col-sm-12">
+              <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="id_Kategori" value="<?php echo $as['id_kategori'] ?>" hidden>
+            </div>
+            <br>
+             <div class="col-sm-12">
+              <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="Kategori" value="<?php echo $as['nama_kategori'] ?>">
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+          </form>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+    <?php } ?>
     <!-- /.content -->
   </div>
 

@@ -16,7 +16,7 @@ class Kategori extends CI_Controller {
         // $nourut = substr($dariDB, 3, 4);
         // $kodeBarangSekarang = $nourut+1;
         $data = array('id_kategori' => $dariDB);
-		$data['kategori'] = $this->M_kategori->ambil_data()->result();
+		$data['kategori'] = $this->M_kategori->ambil_data()->result_array();
 		$this->load->view('kategori',$data);
 	}
 
@@ -43,11 +43,15 @@ class Kategori extends CI_Controller {
 		redirect('kategori');
 	}
 
-	function edit($id_kategori){
-	$where = array('id_kategori' => $id_kategori);
-	$data['kategori'] = $this->M_kategori->edit_data($where,'kategori')->result();
-	$this->load->view('kategori',$data);
-}
+	function edit(){
+		$id_kategori = $this->input->post('id_kategori');
+		$nama_kategori = $this->input->post('nama_kategori');
+
+		$data = array('id_kategori' => $id_kategori, 'nama_kategori' => $nama_kategori);
+		$this->M_kategori->edit_data($id_kategori, $data);
+		redirect('Kategori');
+
+	}
 
 	
 }

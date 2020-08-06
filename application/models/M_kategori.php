@@ -38,8 +38,13 @@ class M_kategori extends CI_Model{
 		$this->db->delete($table);
 	}	
 
-    function edit_data($where,$data,$table){
+    function select_data($where,$table){
 		$this->db->where($where);
-		$this->db->update($table,$data);
-	}	
+		return $this->db->get($table);
+	}
+
+    function edit_data($where,$data){
+        $this->db->where('id_kategori', $where);
+        $this->db->update('kategori',$data);
+    }	
 }
