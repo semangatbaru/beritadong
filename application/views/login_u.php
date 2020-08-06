@@ -17,10 +17,9 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Masukkan username dan Password</p>
-
-      <form action="../../index3.html" method="post">
+      <form action="<?= site_url ('auth/process') ?>" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" name="username"  required oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="setCustomValidity('')"  placeholder="username" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -28,7 +27,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password"  required oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="setCustomValidity('')"  placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -46,16 +45,13 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block" value="login" name="login">Sign in</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
       <div class="social-auth-links text-center mb-3">
- 
-       
-      </div>
+    </div>
       <!-- /.social-auth-links -->
 
       
@@ -70,7 +66,6 @@
 
 <!-- jQuery -->
 <?php $this->load->view('partial/script')?>
-
 
 </body>
 </html>
