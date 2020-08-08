@@ -33,10 +33,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?php echo site_url('Berita') ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Tulisan
+                Berita
               </p>
             </a>
           </li>
@@ -49,9 +49,9 @@
               </p>
             </a>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="<?php echo site_url('auth/logout'); ?>" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
+              <p>                
                 Logout
               </p>
             </a>

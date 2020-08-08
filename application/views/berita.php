@@ -143,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Kategori</h1>
+            <h1>Data Berita</h1>
           </div>
           <div class="col-sm-6">
             <ol class=" breadcrumb float-sm-right">
@@ -175,20 +175,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <thead>
                   <tr>
                     <th class="text-center">No</th>
+                    <th class="text-center">Judul</th>
+                    <th class="text-center">Deskripsi</th>
+                    <th class="text-center">Gambar</th>
+                    <th class="text-center">Penulis</th>
                     <th class="text-center">Kategori</th>
-                    <th class="text-center">Aksi</th>
                   </tr>
                   </thead>
-                    <?php 
+                   
+                   <?php 
                     $no = 1;
-                    foreach($kategori as $wa){ 
+                    foreach($berita as $wa){ 
                     ?>
+
                     <tr>
                       <td class="text-center"><?php echo $no++ ?></td>
-                      <td class="text-center"><?php echo $wa['nama_kategori'] ?></td>
-                      <td class="text-center" style="min-width:230px;">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#modal-edit<?php echo $wa['id_kategori']?>">Edit</button>
-                      <button class="btn btn-warning"> <?php echo anchor('Kategori/hapus/'.$wa['id_kategori'],'Hapus'); ?></button>
+                      <td class="text-center"><?php echo $wa['judul'] ?></td>
+                      <td class="text-center"><?php echo $wa['deskripsi'] ?></td>
+                      <td class="text-center"><?php echo $wa['gambar'] ?></td>
+                      <td class="text-center"><?php echo $wa['penulis'] ?></td>
+                      <td class="text-center"><?php echo $wa['id_kategori'] ?></td>
+                          
                       </td>
                     </tr>
                     <?php } ?>
@@ -197,20 +204,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <!-- /.card-body -->
           <div class="col-1"></div>
     </section>
+     
      <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-                <form action="<?php echo base_url(). 'Kategori/tambah_aksi'; ?>" method="post">
-              <h5 class="modal-title">Tambah Kategori</h5>
+                <form action="<?php echo base_url(). 'Berita/tambah_aksi'; ?>" method="post">
+              <h5 class="modal-title">Tambah Berita</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               </button>
             </div>
-             <div class="col-sm-12">
-              <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="id_Kategori" value="<?php echo $id_kategori ?>" hidden>
-            </div>
             <br>
              <div class="col-sm-12">
+              <input type="text" class="form-control" id="id_berita" name="id_berita" placeholder="id_berita">
+            </div>
+            <br>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul">
+            </div>
+            <div class="col-sm-12">
+              
+            </div>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="gambar" name="gambar" placeholder="Gambar">
+            </div>
+            <br><br>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="penulis" name="penulis" placeholder="Penulis">
+            </div>
+            <div class="col-sm-12">
               <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="Kategori">
             </div>
             <div class="modal-footer justify-content-between">
@@ -225,40 +247,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     <!-- /.content -->
   </div>
-  <?php 
-    foreach($kategori as $as){ 
-  ?>
-  <?php //echo $as['id_kategori'] ?>
-     <div class="modal fade" id="modal-edit<?php echo $as['id_kategori'] ?>">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-                <form action="<?php echo base_url(). 'Kategori/edit'; ?>" method="post">
-              <h5 class="modal-title">Edit Kategori</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              </button>
-            </div>
-             <div class="col-sm-12">
-              <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="id_Kategori" value="<?php echo $as['id_kategori'] ?>" hidden>
-            </div>
-            <br>
-             <div class="col-sm-12">
-              <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="Kategori" value="<?php echo $as['nama_kategori'] ?>">
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Edit</button>
-            </div>
-          </form>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-    <?php } ?>
-    <!-- /.content -->
-  </div>
-
    
 
 
