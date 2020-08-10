@@ -25,9 +25,11 @@ class Berita extends CI_Controller {
  		function tambah_aksi(){
  	 $config['upload_path']         = './gambar/';  // folder upload 
             $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
-            $config['max_size']             = 3000;
-            $config['max_width']            = 1024;
-            $config['max_height']           = 768;
+            $config['max_size']             = 20000;
+            $config['file_name']			= $this->id_berita;
+            $config['overwrite']   			= true;
+            // $config['max_width']            = 1024;
+            // $config['max_height']           = 768;
  
             $this->load->library('upload', $config);
  
