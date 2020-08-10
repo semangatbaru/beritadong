@@ -40,7 +40,7 @@
               </p>
             </a>
           </li>
-          
+         
           <li class="nav-item has-treeview">
             <a href="<?php echo site_url('Kategori') ?>" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -48,6 +48,14 @@
               Kategori
               </p>
             </a>
+            <li class="nav-item">
+            <a href="<?php echo site_url('Registrasi') ?>" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Registrasi
+              </p>
+            </a>
+          </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo site_url('auth/logout'); ?>" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>

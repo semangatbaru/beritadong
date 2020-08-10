@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 <?php $this->load->view('partial/head')?>
 </head>
-<body class="sidebar-mini layout-fixed sidebar-collapse" >
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
           <!-- Left col -->
 	
-            </div>
+           
             <!-- /.card -->
 
             <!-- DIRECT CHAT -->
@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
             
             <!-- /.card -->
-          </section>
+          
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
@@ -147,8 +147,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div><!-- /.container-fluid -->
     </section>
 
-<!-- <div id="container"> -->
-<?php $this->load->view('partial/aside')?>
+  <!-- <div id="container"> -->
+  <?php $this->load->view('partial/aside')?>
 </div>
 <?php $this->load->view('partial/footer')?>
 <?php $this->load->view('partial/script')?>
