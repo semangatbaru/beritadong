@@ -35,6 +35,11 @@ class M_berita extends CI_Model{
         return "K".$kd;
     }
 
+    function hapus_data($where,$table){
+        $this->db->where($where);
+        $this->db->delete($table);
+    }   
+
 
     
     

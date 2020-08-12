@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="inner">
                 <h3>150</h3>
 
-                <p>New Orders</p>
+                <p>Berita</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Kategori</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="inner">
                 <h3>44</h3>
 
-                <p>User Registrations</p>
+                <p>Registrasi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>

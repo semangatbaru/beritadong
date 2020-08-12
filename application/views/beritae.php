@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Main content -->
     <section class="content" >
       <div class="container-fluid">
-         <form action="<?php echo base_url(). 'Berita/tambah_aksi'; ?>" method="post" enctype="multipart/form-data">
+         <form action="<?php echo base_url(). 'Beritae/tambah_aksi'; ?>" method="post" enctype="multipart/form-data">
       
         <div class="row" >
           <div class="col-1"></div>
@@ -212,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <td class="text-center"><?php echo $wa['id_kategori'] ?></td>
                       <td class="text-center">
                       <button class="btn btn-primary" data-toggle="modal" data-target="#modal-edit<?php echo $wa['id_kategori']?>">Edit</button>
-                      <button class="btn btn-warning"> <?php echo anchor('Kategori/hapus/'.$wa['id_kategori'],'Hapus'); ?></button></td>
+                      <button class="btn btn-warning"> <?php echo anchor('Beritae/hapus/'.$wa['id_berita'],'Hapus'); ?></button></td>
                          
                       </td>
                     </tr>

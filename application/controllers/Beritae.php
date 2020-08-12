@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Berita extends CI_Controller {
+class Beritae extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('M_berita');
@@ -15,11 +15,11 @@ class Berita extends CI_Controller {
         $data = array('id_berita' => $dariDB);
 
 		$data['berita'] = $this->M_berita->ambil_data()->result_array();
-		$this->load->view('berita', $data);
+		$this->load->view('beritae', $data);
 	}
 
 			function tambah(){
-		$this->load->view('berita');
+		$this->load->view('beritae');
 	}		
  
  		function tambah_aksi(){
@@ -57,10 +57,16 @@ class Berita extends CI_Controller {
 			        'id_kategori' => $id_kategori
 				);
 				$this->M_berita->input_data($data,'berita');
-				redirect('berita');
+				redirect('beritae');
  
             }
 		}
+
+        function hapus($id_berita){
+            $where = array('id_berita' => $id_berita);
+            $this->M_berita->hapus_data($where,'berita');
+            redirect('beritae');
+        }
 
    
 }
