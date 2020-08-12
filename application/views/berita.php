@@ -209,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <td class="text-center"><?php echo $wa['nama_kategori'] ?></td>
                       <td class="text-center">
                       <button class="btn btn-primary" data-toggle="modal" data-target="#modal-edit<?php echo $wa['id_kategori']?>">Edit</button>
-                      <button class="btn btn-warning"> <?php echo anchor('Kategori/hapus/'.$wa['id_kategori'],'Hapus'); ?></button></td>
+                      <button class="btn btn-warning"> <?php echo anchor('Berita/hapus/'.$wa['id_berita'],'Hapus'); ?></button></td>
                          
                       </td>
                     </tr>

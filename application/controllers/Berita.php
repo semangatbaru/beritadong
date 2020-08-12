@@ -73,5 +73,9 @@ class Berita extends CI_Controller {
             }
 		}
 
-   
+   function hapus($id_berita){
+   	$where = array('id_berita' => $id_berita);
+   	$this->M_berita->hapus_data($where,'berita');
+   	redirect('berita');
+   }
 }
