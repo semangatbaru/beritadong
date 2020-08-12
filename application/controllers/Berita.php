@@ -5,7 +5,7 @@ class Berita extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('M_berita');
-                $this->load->helper('url');
+        $this->load->helper('url');
 }
 
 	
@@ -31,11 +31,11 @@ class Berita extends CI_Controller {
 		$this->load->view('berita');
 	}		
  
- 		function tambah_aksi(){
- 	 $config['upload_path']         = './gambar/';  // folder upload 
+ 		public function tambah_aksi(){
+ 	 		$config['upload_path']         = './gambar/';  // folder upload 
             $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
             $config['max_size']             = 20000;
-            $config['file_name']			= $this->id_berita;
+            $config['file_name']			= $this->input->post('id_berita');
             $config['overwrite']   			= true;
             // $config['max_width']            = 1024;
             // $config['max_height']           = 768;
@@ -68,7 +68,7 @@ class Berita extends CI_Controller {
 					'tanggal' => $tgl
 				);
 				$this->M_berita->input_data($data,'berita');
-				redirect('berita');
+				redirect('Berita');
  
             }
 		}
