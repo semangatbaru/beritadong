@@ -55,3 +55,6 @@ class Kategori extends CI_Controller {
 
 	
 }
+CREATE VIEW tahu AS 
+SELECT id_berita, judul, deskripsi, gambar, penulis, kategori.nama_kategori, tanggal FROM berita , kategori
+WHERE berita.id_kategori = kategori.id_kategori
