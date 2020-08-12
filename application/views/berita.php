@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Main content -->
     <section class="content" >
       <div class="container-fluid">
-         <form action="<?php echo base_url(). 'Beritae/tambah_aksi'; ?>" method="post" enctype="multipart/form-data">
+         <form action="<?php echo base_url(). 'Berita/tambah_aksi'; ?>" method="post" enctype="multipart/form-data">
       
         <div class="row" >
           <div class="col-1"></div>
@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
               <div class="card-body">
                   <div class="col-sm-12">
-              <input type="text" class="form-control" id="id_berita" name="id_berita" placeholder="Id Berita" value="<?php echo $id_berita ?>" >
+              <input type="hidden" class="form-control" id="id_berita" name="id_berita" placeholder="Id Berita" value="<?php echo $id_berita ?>" >
             </div>  
 
                 <div class="card-body">
@@ -143,16 +143,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>  
                 <br>
            
-                    <div class="col-sm-12">
+            <div class="col-sm-12">
              <select class="form-control" id="id_kategori" name="id_kategori" placeholder="Kategori">
-                        <option value="politik">Politik</option>
-                        <option value="ekonomi">Ekonomi</option>
-                        <option value="sosial">Sosial</option>
-                        <option value="opini">Opini</option>
-                        <option value="analisa">Analisa</option>
-                        <option value="biografi">Biografi</option>
-                        <option value="keislaman">Keislaman</option>
-                      </select>
+             <option value="" disable>Pilih kategori</option>
+                <?php foreach ($kategori as $b){ ?>
+                <option  value="<?php echo $b->id_kategori?>"><?php echo $b->nama_kategori?></option>
+                <?php }?>
+               </select>
             </div>  
                 <br>
          
@@ -209,10 +206,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img src="<?php echo base_url('gambar/'.$wa['gambar']) ?>" width="64" />
                       </td>
                       <td class="text-center"><?php echo $wa['penulis'] ?></td>
-                      <td class="text-center"><?php echo $wa['id_kategori'] ?></td>
+                      <td class="text-center"><?php echo $wa['nama_kategori'] ?></td>
                       <td class="text-center">
                       <button class="btn btn-primary" data-toggle="modal" data-target="#modal-edit<?php echo $wa['id_kategori']?>">Edit</button>
-                      <button class="btn btn-warning"> <?php echo anchor('Beritae/hapus/'.$wa['id_berita'],'Hapus'); ?></button></td>
+                      <button class="btn btn-warning"> <?php echo anchor('Kategori/hapus/'.$wa['id_kategori'],'Hapus'); ?></button></td>
                          
                       </td>
                     </tr>

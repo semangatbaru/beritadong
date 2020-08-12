@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Beritae extends CI_Controller {
+class Berita extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('M_berita');
@@ -14,12 +14,21 @@ class Beritae extends CI_Controller {
 		$dariDB = $this->M_berita->kode();
         $data = array('id_berita' => $dariDB);
 
-		$data['berita'] = $this->M_berita->ambil_data()->result_array();
-		$this->load->view('beritae', $data);
+		$data["berita"] = $this->M_berita->ambil_data()->result_array();
+		$data["kategori"] = $this->M_berita->ambilKategori();
+		$this->load->view('berita', $data);
 	}
 
-			function tambah(){
-		$this->load->view('beritae');
+	function coba()
+	{
+		$data = $this->M_berita->ambil_data()->result();
+		print_r($data);
+	}
+
+	
+
+	function tambah(){
+		$this->load->view('berita');
 	}		
  
  		function tambah_aksi(){
@@ -46,7 +55,8 @@ class Beritae extends CI_Controller {
             	$file = $this->upload->data();
             	$gambar = $file['file_name'];
             	$penulis = $this->input->post('penulis');
-            	$id_kategori = $this->input->post('id_kategori');
+				$id_kategori = $this->input->post('id_kategori');
+				$tgl=date('Ydm');
  
                $data = array(
 			        'id_berita' => $id_berita,
@@ -54,19 +64,14 @@ class Beritae extends CI_Controller {
 			        'deskripsi' => $deskripsi,
 			        'gambar' => $gambar,
 			        'penulis' => $penulis,
-			        'id_kategori' => $id_kategori
+					'id_kategori' => $id_kategori,
+					'tanggal' => $tgl
 				);
 				$this->M_berita->input_data($data,'berita');
-				redirect('beritae');
+				redirect('berita');
  
             }
 		}
-
-        function hapus($id_berita){
-            $where = array('id_berita' => $id_berita);
-            $this->M_berita->hapus_data($where,'berita');
-            redirect('beritae');
-        }
 
    
 }

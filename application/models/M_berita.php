@@ -1,17 +1,28 @@
 <?php defined("BASEPATH") or exit('No direct script acces allowed');
  
 class M_berita extends CI_Model{
-	 
+    
+    private $_tableB = "kategori";
 
-	 public function __construct()
-    {
-        $this->load->database();
+
+   public function ambil_data()
+   {
+        // query sql di database SELECT berita.*, kategori.nama_kategori FROM `berita` INNER JOIN kategori ON kategori.id_kategori = berita.id_berita
+        $this->db->select('berita.*, kategori.nama_kategori');
+        $this->db->from('berita');
+        $this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori','left');
+        $query = $this->db->get();
+        return $query;
     }
 
-    function ambil_data(){
-        return $this->db->get('berita');
+    public function ambil_kategori()
+   {
+    return $this->db->get('kategori');
     }
-
+    public function ambilKategori(){
+        return $this->db->get($this->_tableB)->result();
+    }
+    
     function input_data($data,$table){
         $this->kode    = $_POST['id_berita']; 
         $this->db->insert($table,$data);
@@ -34,11 +45,6 @@ class M_berita extends CI_Model{
         
         return "K".$kd;
     }
-
-    function hapus_data($where,$table){
-        $this->db->where($where);
-        $this->db->delete($table);
-    }   
 
 
     
