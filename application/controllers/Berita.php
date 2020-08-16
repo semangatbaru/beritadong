@@ -78,4 +78,20 @@ class Berita extends CI_Controller {
    	$this->M_berita->hapus_data($where,'berita');
    	redirect('berita');
    }
+
+   function edit(){
+		$id_berita = $this->input->post('id_berita');
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$gambar= $this->input->post('gambar');
+		$penulis = $this->input->post('penulis');
+		$id_kategori = $this->input->post('id_kategori');
+		$tanggal = $this->input->post('tanggal');
+
+		$data = array('id_berita' => $id_berita, 'judul' => $judul, 'deskripsi' => $deskripsi, 'gambar' => $gambar, 'penulis' => $penulis, 'id_kategori' => $id_kategori, 'tanggal' => $tanggal);
+		$this->M_berita->edit_data($id_berita, $data);
+			redirect('berita');
+		// print_r($data);
+
+	}
 }

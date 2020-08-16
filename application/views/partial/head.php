@@ -3,6 +3,10 @@
   <title>AdminLTE 3 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/') ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/') ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+ 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/') ?>/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->

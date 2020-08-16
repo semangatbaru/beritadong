@@ -51,4 +51,9 @@ class M_berita extends CI_Model{
         $this->db->delete($table);
     }  
 
+    function edit_data($where,$data){
+        $this->db->where('id_berita', $where);
+        $this->db->update('berita',$data);
+    }   
+
 }
