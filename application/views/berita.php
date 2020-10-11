@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
               <div class="card-body">
                   <div class="col-sm-12">
-              <input type="hidden" class="form-control" id="id_berita" name="id_berita" placeholder="Id Berita" value="<?php echo $id_berita ?>" >
+              <input type="text" class="form-control" id="id_berita" name="id_berita" placeholder="Id Berita" value="<?php echo $id_berita ?>" >
             </div>  
 
                 <div class="card-body">

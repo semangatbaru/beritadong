@@ -11,6 +11,8 @@ class M_berita extends CI_Model{
         $this->db->select('berita.*, kategori.nama_kategori');
         $this->db->from('berita');
         $this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori','left');
+        $this->db->order_by('tanggal', 'desc');
+        
         $query = $this->db->get();
         return $query;
     }
